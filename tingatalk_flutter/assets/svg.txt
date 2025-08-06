@@ -1,0 +1,89 @@
+<svg width="525" height="412" viewBox="0 0 525 412" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(56, 56)"><!-- https://grabient.com/HQVgjAnANKAMswCwA4wwEwDZMZA4W6MA7MQMwnLEkjRnDFhFgFgWauIbL6bHTBUIKLCA?style=angularGradient&steps=3&angle=45 -->
+        <g clip-path="url(#clip_bounds_0)">
+          <foreignObject x="-176.5" y="-233" width="766" height="766">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 45deg,rgba(193, 209, 204, 1) 0.000000deg,rgba(249, 157, 149, 1) 180.000000deg,rgba(179, 225, 217, 1) 360.000000deg);width:100%;height:100%;"></div>
+          </foreignObject>
+          <path d="M0 0H413V300H0V0Z" data-figma-gradient-fill="{&quot;type&quot;:&quot;GRADIENT_ANGULAR&quot;,&quot;stops&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.7562849701515573,&quot;g&quot;:0.8191086051783513,&quot;b&quot;:0.800897319831373,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.9770216918799435,&quot;g&quot;:0.6140417550121862,&quot;b&quot;:0.5850037687643632,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.7003182837725199,&quot;g&quot;:0.883538806537491,&quot;b&quot;:0.8492236224056555,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;stopsVar&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.7562849701515573,&quot;g&quot;:0.8191086051783513,&quot;b&quot;:0.800897319831373,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.9770216918799435,&quot;g&quot;:0.6140417550121862,&quot;b&quot;:0.5850037687643632,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.7003182837725199,&quot;g&quot;:0.883538806537491,&quot;b&quot;:0.8492236224056555,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;transform&quot;:{&quot;m00&quot;:146.017550,&quot;m01&quot;:146.017550,&quot;m02&quot;:206.500000,&quot;m10&quot;:-146.017550,&quot;m11&quot;:146.017550,&quot;m12&quot;:150.000000},&quot;opacity&quot;:1.0,&quot;blendMode&quot;:&quot;NORMAL&quot;,&quot;visible&quot;:true}"/>
+        </g>
+        <defs>
+          <clipPath id="clip_bounds_0">
+            <rect width="413" height="300"/>
+          </clipPath>
+        </defs></g>
+</svg>
+
+
+
+-----------------------------------
+
+
+<svg width="978" height="412" viewBox="0 0 978 412" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(56, 56)"><!-- https://grabient.com/HQVgjAnANKAMswCwA4wwEwDZMZA4W6MA7MQMwnLEkjRnDFhFgFgWauIbL6bHTBUIKLCA?style=angularGradient&steps=3&angle=45 -->
+        <g clip-path="url(#clip_bounds_0)">
+          <foreignObject x="-176.5" y="-233" width="766" height="766">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 45deg,rgba(193, 209, 204, 1) 0.000000deg,rgba(249, 157, 149, 1) 180.000000deg,rgba(179, 225, 217, 1) 360.000000deg);width:100%;height:100%;"></div>
+          </foreignObject>
+          <path d="M0 0H413V300H0V0Z" data-figma-gradient-fill="{&quot;type&quot;:&quot;GRADIENT_ANGULAR&quot;,&quot;stops&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.7562849701515573,&quot;g&quot;:0.8191086051783513,&quot;b&quot;:0.800897319831373,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.9770216918799435,&quot;g&quot;:0.6140417550121862,&quot;b&quot;:0.5850037687643632,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.7003182837725199,&quot;g&quot;:0.883538806537491,&quot;b&quot;:0.8492236224056555,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;stopsVar&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.7562849701515573,&quot;g&quot;:0.8191086051783513,&quot;b&quot;:0.800897319831373,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.9770216918799435,&quot;g&quot;:0.6140417550121862,&quot;b&quot;:0.5850037687643632,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.7003182837725199,&quot;g&quot;:0.883538806537491,&quot;b&quot;:0.8492236224056555,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;transform&quot;:{&quot;m00&quot;:146.017550,&quot;m01&quot;:146.017550,&quot;m02&quot;:206.500000,&quot;m10&quot;:-146.017550,&quot;m11&quot;:146.017550,&quot;m12&quot;:150.000000},&quot;opacity&quot;:1.0,&quot;blendMode&quot;:&quot;NORMAL&quot;,&quot;visible&quot;:true}"/>
+        </g>
+        <defs>
+          <clipPath id="clip_bounds_0">
+            <rect width="413" height="300"/>
+          </clipPath>
+        </defs></g>
+<g transform="translate(509, 56)"><!-- https://grabient.com/HQVg7AzANKBssxCAnDAjADlcTCfIBYYCMREAGDY2aNYZZNKAWnNHICYoDgSIg?style=angularGradient&steps=3&angle=45 -->
+        <g clip-path="url(#clip_bounds_1)">
+          <foreignObject x="-176.5" y="-233" width="766" height="766">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 45deg,rgba(194, 97, 93, 1) 0.000000deg,rgba(151, 145, 132, 1) 180.000000deg,rgba(98, 192, 189, 1) 360.000000deg);width:100%;height:100%;"></div>
+          </foreignObject>
+          <path d="M0 0H413V300H0V0Z" data-figma-gradient-fill="{&quot;type&quot;:&quot;GRADIENT_ANGULAR&quot;,&quot;stops&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.7616978929705962,&quot;g&quot;:0.38001468577809017,&quot;b&quot;:0.3661056466629823,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.5925590326523297,&quot;g&quot;:0.5683372834183036,&quot;b&quot;:0.5160856299986911,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.3861448202445342,&quot;g&quot;:0.7518678419111495,&quot;b&quot;:0.7419401639632157,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;stopsVar&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.7616978929705962,&quot;g&quot;:0.38001468577809017,&quot;b&quot;:0.3661056466629823,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.5925590326523297,&quot;g&quot;:0.5683372834183036,&quot;b&quot;:0.5160856299986911,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.3861448202445342,&quot;g&quot;:0.7518678419111495,&quot;b&quot;:0.7419401639632157,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;transform&quot;:{&quot;m00&quot;:146.017550,&quot;m01&quot;:146.017550,&quot;m02&quot;:206.500000,&quot;m10&quot;:-146.017550,&quot;m11&quot;:146.017550,&quot;m12&quot;:150.000000},&quot;opacity&quot;:1.0,&quot;blendMode&quot;:&quot;NORMAL&quot;,&quot;visible&quot;:true}"/>
+        </g>
+        <defs>
+          <clipPath id="clip_bounds_1">
+            <rect width="413" height="300"/>
+          </clipPath>
+        </defs></g>
+</svg>
+
+
+
+------------------------------------------
+
+<svg width="1476" height="1038" viewBox="0 0 1476 1038" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(56, 56)"><!-- https://grabient.com/HQVgjAnANKAMswCwA4wwEwDZMZA4W6MA7MQMwnLEkjRnDFhFgFgWauIbL6bHTBUIKLCA?style=angularGradient&steps=3&angle=45 -->
+        <g clip-path="url(#clip_bounds_0)">
+          <foreignObject x="-551.5" y="-302.5" width="1531" height="1531">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 45deg,rgba(193, 209, 204, 1) 0.000000deg,rgba(249, 157, 149, 1) 180.000000deg,rgba(179, 225, 217, 1) 360.000000deg);width:100%;height:100%;"></div>
+          </foreignObject>
+          <path d="M0 0H428V926H0V0Z" data-figma-gradient-fill="{&quot;type&quot;:&quot;GRADIENT_ANGULAR&quot;,&quot;stops&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.7562849701515573,&quot;g&quot;:0.8191086051783513,&quot;b&quot;:0.800897319831373,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.9770216918799435,&quot;g&quot;:0.6140417550121862,&quot;b&quot;:0.5850037687643632,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.7003182837725199,&quot;g&quot;:0.883538806537491,&quot;b&quot;:0.8492236224056555,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;stopsVar&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.7562849701515573,&quot;g&quot;:0.8191086051783513,&quot;b&quot;:0.800897319831373,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.9770216918799435,&quot;g&quot;:0.6140417550121862,&quot;b&quot;:0.5850037687643632,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.7003182837725199,&quot;g&quot;:0.883538806537491,&quot;b&quot;:0.8492236224056555,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;transform&quot;:{&quot;m00&quot;:327.390440,&quot;m01&quot;:327.390440,&quot;m02&quot;:214.000000,&quot;m10&quot;:-327.390440,&quot;m11&quot;:327.390440,&quot;m12&quot;:463.000000},&quot;opacity&quot;:1.0,&quot;blendMode&quot;:&quot;NORMAL&quot;,&quot;visible&quot;:true}"/>
+        </g>
+        <defs>
+          <clipPath id="clip_bounds_0">
+            <rect width="428" height="926"/>
+          </clipPath>
+        </defs></g>
+<g transform="translate(524, 56)"><!-- https://grabient.com/HQVg7AzANKBssxCAnDAjADlcTCfIBYYCMREAGDY2aNYZZNKAWnNHICYoDgSIg?style=angularGradient&steps=3&angle=45 -->
+        <g clip-path="url(#clip_bounds_1)">
+          <foreignObject x="-551.5" y="-302.5" width="1531" height="1531">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 45deg,rgba(194, 97, 93, 1) 0.000000deg,rgba(151, 145, 132, 1) 180.000000deg,rgba(98, 192, 189, 1) 360.000000deg);width:100%;height:100%;"></div>
+          </foreignObject>
+          <path d="M0 0H428V926H0V0Z" data-figma-gradient-fill="{&quot;type&quot;:&quot;GRADIENT_ANGULAR&quot;,&quot;stops&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.7616978929705962,&quot;g&quot;:0.38001468577809017,&quot;b&quot;:0.3661056466629823,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.5925590326523297,&quot;g&quot;:0.5683372834183036,&quot;b&quot;:0.5160856299986911,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.3861448202445342,&quot;g&quot;:0.7518678419111495,&quot;b&quot;:0.7419401639632157,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;stopsVar&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.7616978929705962,&quot;g&quot;:0.38001468577809017,&quot;b&quot;:0.3661056466629823,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.5925590326523297,&quot;g&quot;:0.5683372834183036,&quot;b&quot;:0.5160856299986911,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.3861448202445342,&quot;g&quot;:0.7518678419111495,&quot;b&quot;:0.7419401639632157,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;transform&quot;:{&quot;m00&quot;:327.390440,&quot;m01&quot;:327.390440,&quot;m02&quot;:214.000000,&quot;m10&quot;:-327.390440,&quot;m11&quot;:327.390440,&quot;m12&quot;:463.000000},&quot;opacity&quot;:1.0,&quot;blendMode&quot;:&quot;NORMAL&quot;,&quot;visible&quot;:true}"/>
+        </g>
+        <defs>
+          <clipPath id="clip_bounds_1">
+            <rect width="428" height="926"/>
+          </clipPath>
+        </defs></g>
+<g transform="translate(992, 56)"><!-- https://grabient.com/HQNgTAHANMAsEFYZjLZIkFoAMwwE4QZZ9oc4BGMKcsEfGCgdiIuAGY6bcF9rM22bOyA?style=angularGradient&steps=3&angle=45 -->
+        <g clip-path="url(#clip_bounds_2)">
+          <foreignObject x="-551.5" y="-302.5" width="1531" height="1531">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 45deg,rgba(129, 187, 184, 1) 0.000000deg,rgba(209, 135, 166, 1) 180.000000deg,rgba(218, 75, 116, 1) 360.000000deg);width:100%;height:100%;"></div>
+          </foreignObject>
+          <path d="M0 0H428V926H0V0Z" data-figma-gradient-fill="{&quot;type&quot;:&quot;GRADIENT_ANGULAR&quot;,&quot;stops&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.5062113369353056,&quot;g&quot;:0.732908299852474,&quot;b&quot;:0.7219115314856429,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.821176686266674,&quot;g&quot;:0.5285471979042369,&quot;b&quot;:0.6526495294479637,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.855244563891318,&quot;g&quot;:0.29489321465973106,&quot;b&quot;:0.4556452368825742,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;stopsVar&quot;:[{&quot;color&quot;:{&quot;r&quot;:0.5062113369353056,&quot;g&quot;:0.732908299852474,&quot;b&quot;:0.7219115314856429,&quot;a&quot;:1},&quot;position&quot;:0},{&quot;color&quot;:{&quot;r&quot;:0.821176686266674,&quot;g&quot;:0.5285471979042369,&quot;b&quot;:0.6526495294479637,&quot;a&quot;:1},&quot;position&quot;:0.5},{&quot;color&quot;:{&quot;r&quot;:0.855244563891318,&quot;g&quot;:0.29489321465973106,&quot;b&quot;:0.4556452368825742,&quot;a&quot;:1},&quot;position&quot;:1}],&quot;transform&quot;:{&quot;m00&quot;:327.390440,&quot;m01&quot;:327.390440,&quot;m02&quot;:214.000000,&quot;m10&quot;:-327.390440,&quot;m11&quot;:327.390440,&quot;m12&quot;:463.000000},&quot;opacity&quot;:1.0,&quot;blendMode&quot;:&quot;NORMAL&quot;,&quot;visible&quot;:true}"/>
+        </g>
+        <defs>
+          <clipPath id="clip_bounds_2">
+            <rect width="428" height="926"/>
+          </clipPath>
+        </defs></g>
+</svg>
