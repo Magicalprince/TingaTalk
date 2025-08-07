@@ -1,0 +1,116 @@
+.background-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.flowing-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.flow-curve {
+  position: absolute;
+  width: 300px;
+  height: 600px;
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+.flow-curve-1 {
+  background: linear-gradient(45deg, 
+    transparent 0%, 
+    rgba(139, 92, 246, 0.8) 20%, 
+    rgba(59, 130, 246, 0.6) 40%, 
+    rgba(6, 182, 212, 0.4) 60%, 
+    transparent 80%
+  );
+  border-radius: 50% 30% 70% 40%;
+  animation: flow1 20s ease-in-out infinite;
+  top: 10%;
+  left: -20%;
+  transform: rotate(15deg);
+}
+
+.flow-curve-2 {
+  background: linear-gradient(-45deg, 
+    transparent 0%, 
+    rgba(236, 72, 153, 0.7) 20%, 
+    rgba(139, 92, 246, 0.5) 40%, 
+    rgba(59, 130, 246, 0.3) 60%, 
+    transparent 80%
+  );
+  border-radius: 40% 60% 30% 70%;
+  animation: flow2 25s ease-in-out infinite reverse;
+  top: 30%;
+  right: -30%;
+  transform: rotate(-20deg);
+}
+
+.flow-curve-3 {
+  background: linear-gradient(135deg, 
+    transparent 0%, 
+    rgba(6, 182, 212, 0.6) 20%, 
+    rgba(236, 72, 153, 0.4) 40%, 
+    rgba(139, 92, 246, 0.2) 60%, 
+    transparent 80%
+  );
+  border-radius: 60% 40% 80% 20%;
+  animation: flow3 30s ease-in-out infinite;
+  bottom: 10%;
+  left: -10%;
+  transform: rotate(45deg);
+}
+
+@keyframes flow1 {
+  0%, 100% { 
+    transform: rotate(15deg) scale(1) translateX(0) translateY(0); 
+  }
+  25% { 
+    transform: rotate(105deg) scale(1.1) translateX(20px) translateY(-10px);
+  }
+  50% { 
+    transform: rotate(195deg) scale(0.9) translateX(-15px) translateY(15px);
+  }
+  75% { 
+    transform: rotate(285deg) scale(1.05) translateX(10px) translateY(-5px);
+  }
+}
+
+@keyframes flow2 {
+  0%, 100% { 
+    transform: rotate(-20deg) scale(1.1) translateX(0) translateY(0); 
+  }
+  33% { 
+    transform: rotate(100deg) scale(0.95) translateX(-25px) translateY(20px);
+  }
+  66% { 
+    transform: rotate(220deg) scale(1.05) translateX(15px) translateY(-10px);
+  }
+}
+
+@keyframes flow3 {
+  0%, 100% { 
+    transform: rotate(45deg) scale(0.9) translateX(0) translateY(0); 
+  }
+  40% { 
+    transform: rotate(189deg) scale(1.1) translateX(30px) translateY(-20px);
+  }
+  80% { 
+    transform: rotate(333deg) scale(1) translateX(-10px) translateY(25px);
+  }
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 20px;
+}

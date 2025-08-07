@@ -17,40 +17,96 @@ class LandingPage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: AppColors.primaryGradient,
+            colors: [
+              Color(0xFFE91E63), // Bright Pink - More visible
+              Color(0xFFAD1457), // Dark Pink
+              Color(0xFF8E24AA), // Purple Pink  
+              Color(0xFF673AB7), // Deep Purple
+              Color(0xFF4A148C), // Very Deep Purple
+            ],
+            stops: [0.0, 0.25, 0.5, 0.75, 1.0],
           ),
         ),
         child: Stack(
           children: [
-            // Modern gradient overlay for depth
+            // ENHANCED NEON GRADIENT OVERLAY - More visible
             Positioned.fill(
               child: Container(
                 decoration: BoxDecoration(
                   gradient: RadialGradient(
-                    center: const Alignment(0.3, -0.4),
-                    radius: 1.2,
+                    center: const Alignment(0.0, -0.4),
+                    radius: 1.8,
                     colors: [
-                      AppColors.accent.withValues(alpha: 0.3),
-                      AppColors.primaryBackground.withValues(alpha: 0.2),
+                      // Much more visible neon pink center
+                      AppColors.accent.withValues(alpha: 0.7),
+                      AppColors.primaryBackground.withValues(alpha: 0.55),
+                      AppColors.secondaryBackground.withValues(alpha: 0.4),
+                      AppColors.tertiaryBackground.withValues(alpha: 0.25),
                       Colors.transparent,
                     ],
+                    stops: const [0.0, 0.25, 0.5, 0.75, 1.0],
                   ),
                 ),
               ),
             ),
             
-            // Subtle pattern overlay
+            // ENHANCED NEON GLOW PATTERN - More visible
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    center: const Alignment(-0.5, 0.3),
+                    radius: 1.2,
+                    colors: [
+                      AppColors.accent.withValues(alpha: 0.5),
+                      AppColors.primaryBackground.withValues(alpha: 0.35),
+                      AppColors.secondaryBackground.withValues(alpha: 0.2),
+                      Colors.transparent,
+                    ],
+                    stops: const [0.0, 0.3, 0.6, 1.0],
+                  ),
+                ),
+              ),
+            ),
+            
+            // ENHANCED RIGHT SIDE NEON GLOW
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    center: const Alignment(0.6, -0.2),
+                    radius: 1.0,
+                    colors: [
+                      AppColors.secondaryBackground.withValues(alpha: 0.55),
+                      AppColors.tertiaryBackground.withValues(alpha: 0.4),
+                      AppColors.primaryBackground.withValues(alpha: 0.25),
+                      Colors.transparent,
+                    ],
+                    stops: const [0.0, 0.4, 0.7, 1.0],
+                  ),
+                ),
+              ),
+            ),
+            
+            // ENHANCED DIAGONAL NEON SWEEP - Much more visible
             Positioned.fill(
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+                    begin: const Alignment(-0.8, -0.8),
+                    end: const Alignment(0.8, 0.8),
                     colors: [
-                      AppColors.overlayLight,
+                      AppColors.accent.withValues(alpha: 0.4),
                       Colors.transparent,
-                      AppColors.overlayLight,
+                      AppColors.primaryBackground.withValues(alpha: 0.35),
+                      Colors.transparent,
+                      AppColors.secondaryBackground.withValues(alpha: 0.4),
+                      Colors.transparent,
+                      AppColors.tertiaryBackground.withValues(alpha: 0.3),
+                      Colors.transparent,
+                      AppColors.accent.withValues(alpha: 0.25),
                     ],
+                    stops: const [0.0, 0.12, 0.25, 0.37, 0.5, 0.62, 0.75, 0.87, 1.0],
                   ),
                 ),
               ),
@@ -59,7 +115,7 @@ class LandingPage extends StatelessWidget {
             SafeArea(
               child: Column(
                 children: [
-                  // COMPLETELY CAMOUFLAGED LOGO - SWAPPED DUAL-TONE
+                  // NEON LOGO - INSPIRED BY PURPLE SCREEN GRADIENT
                   Padding(
                     padding: const EdgeInsets.all(24),
                     child: Center(
@@ -68,26 +124,35 @@ class LandingPage extends StatelessWidget {
                         height: 100,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          // SWAPPED DUAL-TONE - Perfect camouflage
+                          // NEON GLOW SHADOWS - Like purple screen
                           boxShadow: [
+                            // Inner neon glow
                             BoxShadow(
-                              color: AppColors.accent.withValues(alpha: 0.9), // SWAPPED: Lighter pink at top
-                              blurRadius: 50,
-                              spreadRadius: 12,
-                              offset: const Offset(0, -15), // Shadow upward
-                            ),
-                            BoxShadow(
-                              color: AppColors.tertiaryBackground.withValues(alpha: 0.8), // SWAPPED: Darker pink at bottom
+                              color: AppColors.accent.withValues(alpha: 0.8),
                               blurRadius: 40,
-                              spreadRadius: 8,
-                              offset: const Offset(0, 15), // Shadow downward
+                              spreadRadius: 0,
+                              offset: const Offset(0, 0),
                             ),
-                            // Additional camouflage layers
+                            // Mid neon glow
                             BoxShadow(
                               color: AppColors.primaryBackground.withValues(alpha: 0.6),
                               blurRadius: 60,
-                              spreadRadius: 15,
-                              offset: const Offset(0, 0), // All around glow
+                              spreadRadius: 10,
+                              offset: const Offset(0, 0),
+                            ),
+                            // Outer neon glow
+                            BoxShadow(
+                              color: AppColors.secondaryBackground.withValues(alpha: 0.4),
+                              blurRadius: 80,
+                              spreadRadius: 20,
+                              offset: const Offset(0, 0),
+                            ),
+                            // Depth shadow
+                            BoxShadow(
+                              color: AppColors.tertiaryBackground.withValues(alpha: 0.3),
+                              blurRadius: 25,
+                              spreadRadius: 5,
+                              offset: const Offset(0, 6),
                             ),
                           ],
                         ),
@@ -95,6 +160,7 @@ class LandingPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(25),
                           child: Stack(
                             children: [
+                              // Logo image
                               Image.asset(
                                 'assets/images/logo.jpeg',
                                 width: 100,
@@ -105,10 +171,14 @@ class LandingPage extends StatelessWidget {
                                     width: 100,
                                     height: 100,
                                     decoration: BoxDecoration(
-                                      gradient: const LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: AppColors.logoGradient,
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        colors: [
+                                          AppColors.accent,
+                                          AppColors.primaryBackground,
+                                          AppColors.secondaryBackground,
+                                        ],
                                       ),
                                       borderRadius: BorderRadius.circular(25),
                                     ),
@@ -126,35 +196,36 @@ class LandingPage extends StatelessWidget {
                                   );
                                 },
                               ),
-                              // PERFECT CAMOUFLAGE - SWAPPED gradient overlay
+                              // NEON BLEND OVERLAY - Matches neon background
                               Container(
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                     begin: Alignment.topCenter,
                                     end: Alignment.bottomCenter,
                                     colors: [
-                                      // SWAPPED: Lighter pink at top
-                                      AppColors.accent.withValues(alpha: 0.4),
+                                      // Neon pink tint at top
+                                      AppColors.accent.withValues(alpha: 0.25),
                                       Colors.transparent,
-                                      // SWAPPED: Darker pink at bottom
-                                      AppColors.tertiaryBackground.withValues(alpha: 0.5),
+                                      // Neon purple tint at bottom
+                                      AppColors.tertiaryBackground.withValues(alpha: 0.3),
                                     ],
-                                    stops: const [0.0, 0.4, 1.0],
+                                    stops: const [0.0, 0.5, 1.0],
                                   ),
                                   borderRadius: BorderRadius.circular(25),
                                 ),
                               ),
-                              // Additional blending layer for complete camouflage
+                              // ADDITIONAL NEON GLOW OVERLAY
                               Container(
                                 decoration: BoxDecoration(
                                   gradient: RadialGradient(
                                     center: const Alignment(0.0, 0.0),
-                                    radius: 0.8,
+                                    radius: 1.0,
                                     colors: [
                                       Colors.transparent,
-                                      AppColors.primaryBackground.withValues(alpha: 0.3),
-                                      AppColors.secondaryBackground.withValues(alpha: 0.2),
+                                      AppColors.primaryBackground.withValues(alpha: 0.15),
+                                      AppColors.accent.withValues(alpha: 0.2),
                                     ],
+                                    stops: const [0.0, 0.6, 1.0],
                                   ),
                                   borderRadius: BorderRadius.circular(25),
                                 ),

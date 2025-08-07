@@ -127,40 +127,75 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: AppColors.primaryGradient,
+            colors: [
+              Color(0xFFE91E63), // Bright Pink - More visible
+              Color(0xFFAD1457), // Dark Pink
+              Color(0xFF8E24AA), // Purple Pink  
+              Color(0xFF673AB7), // Deep Purple
+              Color(0xFF4A148C), // Very Deep Purple
+            ],
+            stops: [0.0, 0.25, 0.5, 0.75, 1.0],
           ),
         ),
         child: Stack(
           children: [
-            // Modern gradient overlay for depth - SAME AS LANDING PAGE
+            // ENHANCED NEON GRADIENT OVERLAY - ONBOARDING VERSION
             Positioned.fill(
               child: Container(
                 decoration: BoxDecoration(
                   gradient: RadialGradient(
-                    center: const Alignment(0.3, -0.4),
-                    radius: 1.2,
+                    center: const Alignment(0.2, -0.3),
+                    radius: 1.6,
                     colors: [
-                      AppColors.accent.withValues(alpha: 0.3),
-                      AppColors.primaryBackground.withValues(alpha: 0.2),
+                      // Enhanced neon pink center
+                      AppColors.accent.withValues(alpha: 0.6),
+                      AppColors.primaryBackground.withValues(alpha: 0.45),
+                      AppColors.secondaryBackground.withValues(alpha: 0.3),
+                      AppColors.tertiaryBackground.withValues(alpha: 0.2),
                       Colors.transparent,
                     ],
+                    stops: const [0.0, 0.25, 0.5, 0.75, 1.0],
                   ),
                 ),
               ),
             ),
             
-            // Subtle pattern overlay - SAME AS LANDING PAGE
+            // NEON GLOW PATTERN - Left side
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    center: const Alignment(-0.6, 0.4),
+                    radius: 1.1,
+                    colors: [
+                      AppColors.accent.withValues(alpha: 0.4),
+                      AppColors.primaryBackground.withValues(alpha: 0.25),
+                      AppColors.secondaryBackground.withValues(alpha: 0.15),
+                      Colors.transparent,
+                    ],
+                    stops: const [0.0, 0.3, 0.6, 1.0],
+                  ),
+                ),
+              ),
+            ),
+            
+            // DIAGONAL NEON SWEEP - Onboarding version
             Positioned.fill(
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+                    begin: const Alignment(-0.9, -0.9),
+                    end: const Alignment(0.9, 0.9),
                     colors: [
-                      AppColors.overlayLight,
+                      AppColors.accent.withValues(alpha: 0.35),
                       Colors.transparent,
-                      AppColors.overlayLight,
+                      AppColors.primaryBackground.withValues(alpha: 0.25),
+                      Colors.transparent,
+                      AppColors.secondaryBackground.withValues(alpha: 0.3),
+                      Colors.transparent,
+                      AppColors.tertiaryBackground.withValues(alpha: 0.2),
                     ],
+                    stops: const [0.0, 0.16, 0.33, 0.5, 0.66, 0.83, 1.0],
                   ),
                 ),
               ),
@@ -188,32 +223,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
                   
-                  // COMPLETELY CAMOUFLAGED LOGO - SWAPPED DUAL-TONE
+                  // PROFESSIONAL ONBOARDING LOGO - CLEAN & BUSINESS-READY
                   Container(
                     width: 110,
                     height: 110,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(28),
-                      // SWAPPED DUAL-TONE - Perfect camouflage
+                      // PROFESSIONAL SHADOWS - Clean like "My Village"
                       boxShadow: [
+                        // Main pink glow that matches background
                         BoxShadow(
-                          color: AppColors.accent.withValues(alpha: 0.9), // SWAPPED: Lighter pink at top
-                          blurRadius: 55,
-                          spreadRadius: 12,
-                          offset: const Offset(0, -18), // Shadow upward
-                        ),
-                        BoxShadow(
-                          color: AppColors.tertiaryBackground.withValues(alpha: 0.8), // SWAPPED: Darker pink at bottom
-                          blurRadius: 45,
+                          color: AppColors.primaryBackground.withValues(alpha: 0.45),
+                          blurRadius: 35,
                           spreadRadius: 10,
-                          offset: const Offset(0, 18), // Shadow downward
+                          offset: const Offset(0, 0),
                         ),
-                        // Additional camouflage layers
+                        // Depth shadow
                         BoxShadow(
-                          color: AppColors.primaryBackground.withValues(alpha: 0.6),
-                          blurRadius: 65,
-                          spreadRadius: 15,
-                          offset: const Offset(0, 0), // All around glow
+                          color: AppColors.tertiaryBackground.withValues(alpha: 0.35),
+                          blurRadius: 20,
+                          spreadRadius: 5,
+                          offset: const Offset(0, 5),
                         ),
                       ],
                     ),
@@ -221,6 +251,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       borderRadius: BorderRadius.circular(28),
                       child: Stack(
                         children: [
+                          // Logo image
                           Image.asset(
                             'assets/images/logo.jpeg',
                             width: 110,
@@ -231,10 +262,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 width: 110,
                                 height: 110,
                                 decoration: BoxDecoration(
-                                  gradient: const LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: AppColors.logoGradient,
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: [
+                                      AppColors.accent,
+                                      AppColors.primaryBackground,
+                                      AppColors.secondaryBackground,
+                                    ],
                                   ),
                                   borderRadius: BorderRadius.circular(28),
                                 ),
@@ -252,35 +287,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               );
                             },
                           ),
-                          // PERFECT CAMOUFLAGE - SWAPPED gradient overlay
+                          // CLEAN BLEND OVERLAY - Matches background
                           Container(
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: [
-                                  // SWAPPED: Lighter pink at top
-                                  AppColors.accent.withValues(alpha: 0.45),
+                                  // Subtle pink tint at top
+                                  AppColors.primaryBackground.withValues(alpha: 0.18),
                                   Colors.transparent,
-                                  // SWAPPED: Darker pink at bottom
-                                  AppColors.tertiaryBackground.withValues(alpha: 0.55),
+                                  // Subtle purple tint at bottom
+                                  AppColors.tertiaryBackground.withValues(alpha: 0.22),
                                 ],
-                                stops: const [0.0, 0.4, 1.0],
-                              ),
-                              borderRadius: BorderRadius.circular(28),
-                            ),
-                          ),
-                          // Additional blending layer for complete camouflage
-                          Container(
-                            decoration: BoxDecoration(
-                              gradient: RadialGradient(
-                                center: const Alignment(0.0, 0.0),
-                                radius: 0.85,
-                                colors: [
-                                  Colors.transparent,
-                                  AppColors.primaryBackground.withValues(alpha: 0.35),
-                                  AppColors.secondaryBackground.withValues(alpha: 0.25),
-                                ],
+                                stops: const [0.0, 0.5, 1.0],
                               ),
                               borderRadius: BorderRadius.circular(28),
                             ),

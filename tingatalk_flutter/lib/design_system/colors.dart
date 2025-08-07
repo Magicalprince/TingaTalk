@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Professional Pinkish Theme - Based on the new logo and screen images
-  static const Color primaryBackground = Color(0xFFE91E63); // Deep Pink
-  static const Color secondaryBackground = Color(0xFF8E24AA); // Purple Pink
-  static const Color tertiaryBackground = Color(0xFF673AB7); // Deep Purple
+  // Professional Pinkish Theme - Lighter colors matching reference images
+  static const Color primaryBackground = Color(0xFFFF6B9D); // Lighter bright pink
+  static const Color secondaryBackground = Color(0xFFE91E63); // Bright pink
+  static const Color tertiaryBackground = Color(0xFF8E24AA); // Purple pink
   
-  // Gradient colors for modern pinkish theme
-  static const Color gradientStart = Color(0xFFE91E63); // Bright Pink
-  static const Color gradientMiddle = Color(0xFFAD1457); // Dark Pink
-  static const Color gradientEnd = Color(0xFF4A148C); // Deep Purple
+  // Gradient colors for modern pinkish theme - lighter palette
+  static const Color gradientStart = Color(0xFFFF6B9D); // Lighter bright pink
+  static const Color gradientMiddle = Color(0xFFE91E63); // Bright pink
+  static const Color gradientEnd = Color(0xFF673AB7); // Deep purple
   
   // Text colors - Professional and readable
   static const Color primaryText = Color(0xFFFFFFFF);
@@ -23,9 +23,9 @@ class AppColors {
   static const Color buttonText = Color(0xFF212121);
   static const Color buttonShadow = Color(0x1A000000);
   
-  // Input colors - Semi-transparent for modern look
-  static const Color inputBackground = Color(0x1AFFFFFF);
-  static const Color inputBorder = Color(0x33FFFFFF);
+  // Input colors - iPhone-style with better contrast
+  static const Color inputBackground = Color(0x26FFFFFF); // More visible
+  static const Color inputBorder = Color(0x4DFFFFFF); // Better border visibility
   static const Color inputFocusBorder = Color(0xFFFFFFFF);
   
   // Accent colors for highlights and interactions
@@ -42,24 +42,25 @@ class AppColors {
   static const Color warning = Color(0xFFFF9800);
   static const Color error = Color(0xFFF44336);
   
-  // Modern gradient combinations for backgrounds
+  // Modern gradient combinations for backgrounds - lighter palette
   static const List<Color> primaryGradient = [
-    Color(0xFFE91E63), // Bright Pink
-    Color(0xFFAD1457), // Dark Pink
-    Color(0xFF8E24AA), // Purple Pink
-    Color(0xFF673AB7), // Deep Purple
+    Color(0xFFFF6B9D), // Lighter bright pink
+    Color(0xFFE91E63), // Bright pink
+    Color(0xFFAD1457), // Medium pink
+    Color(0xFF8E24AA), // Purple pink
+    Color(0xFF673AB7), // Deep purple
   ];
   
   static const List<Color> secondaryGradient = [
-    Color(0xFFFF4081), // Pink Accent
-    Color(0xFFE91E63), // Deep Pink
-    Color(0xFFAD1457), // Dark Pink
+    Color(0xFFFF6B9D), // Lighter bright pink
+    Color(0xFFFF4081), // Pink accent
+    Color(0xFFE91E63), // Bright pink
   ];
   
   static const List<Color> logoGradient = [
-    Color(0xFFE91E63), // Bright Pink
-    Color(0xFFAD1457), // Dark Pink
-    Color(0xFF8E24AA), // Purple Pink
+    Color(0xFFFF6B9D), // Lighter bright pink
+    Color(0xFFE91E63), // Bright pink
+    Color(0xFF8E24AA), // Purple pink
   ];
   
   // Overlay colors for depth and layering

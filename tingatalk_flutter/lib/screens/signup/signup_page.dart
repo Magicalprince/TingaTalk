@@ -4,6 +4,7 @@ import '../../design_system/typography.dart';
 import '../../design_system/spacing.dart';
 import '../../widgets/common/flowing_background.dart';
 import '../../widgets/common/tinga_logo.dart';
+import '../home/home_screen.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -31,18 +32,31 @@ class _SignupPageState extends State<SignupPage> {
   }
 
   void _signup() async {
+    // Check for empty fields
+    if (_nameController.text.isEmpty) {
+      _showErrorMessage('Please enter your full name');
+      return;
+    }
+    if (_emailController.text.isEmpty) {
+      _showErrorMessage('Please enter your email address');
+      return;
+    }
+    if (_passwordController.text.isEmpty) {
+      _showErrorMessage('Please enter a password');
+      return;
+    }
+    if (_confirmPasswordController.text.isEmpty) {
+      _showErrorMessage('Please confirm your password');
+      return;
+    }
+    
     if (_nameController.text.isNotEmpty &&
         _emailController.text.isNotEmpty &&
         _passwordController.text.isNotEmpty &&
         _confirmPasswordController.text.isNotEmpty) {
       
       if (_passwordController.text != _confirmPasswordController.text) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Passwords do not match'),
-            backgroundColor: Colors.red,
-          ),
-        );
+        _showErrorMessage('Passwords do not match');
         return;
       }
       
@@ -58,13 +72,58 @@ class _SignupPageState extends State<SignupPage> {
       });
       
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Account created successfully! Welcome to TingaTalk!'),
-          backgroundColor: AppColors.accent,
-          duration: Duration(seconds: 3),
+        SnackBar(
+          content: const Text(
+            'Account created successfully! Welcome to TingaTalk!',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          backgroundColor: Colors.green.shade600, // Green for success
+          duration: const Duration(seconds: 2),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          margin: const EdgeInsets.all(16),
         ),
       );
+      
+      // Navigate to home screen after successful signup
+      Future.delayed(const Duration(seconds: 2), () {
+        if (mounted) {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()),
+            (route) => false,
+          );
+        }
+      });
     }
+  }
+
+  void _showErrorMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        backgroundColor: Colors.red.shade600,
+        duration: const Duration(seconds: 3),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        margin: const EdgeInsets.all(16),
+      ),
+    );
   }
 
   bool get _isFormValid {
