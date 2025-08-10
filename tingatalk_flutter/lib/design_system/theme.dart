@@ -7,7 +7,7 @@ class AppTheme {
     return ThemeData(
       brightness: Brightness.dark,
       primarySwatch: Colors.purple,
-      scaffoldBackgroundColor: AppColors.primaryBackground,
+      scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
       
       // AppBar theme with gradient support
       appBarTheme: const AppBarTheme(
@@ -68,13 +68,13 @@ class AppTheme {
     );
   }
   
-  // Helper method to create horizontal gradient background for any screen
+  // Helper method to create horizontal left-to-right gradient background
   static Widget gradientBackground({required Widget child}) {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
           colors: AppColors.primaryGradient,
           stops: [0.0, 0.3, 0.7, 1.0],
         ),

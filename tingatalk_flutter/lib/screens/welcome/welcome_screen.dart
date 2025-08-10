@@ -12,8 +12,8 @@ class WelcomeScreen extends StatelessWidget {
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
             colors: AppColors.primaryGradient,
             stops: [0.0, 0.3, 0.7, 1.0],
           ),
@@ -31,9 +31,9 @@ class WelcomeScreen extends StatelessWidget {
                   height: 85,
                   decoration: ShapeDecoration(
                     gradient: const LinearGradient(
-                      colors: [Color(0xFFC084FC), Color(0xFFB111AA), Color(0xFF53004C)],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
+                      colors: [Color(0xFFD946EF), Color(0xFFB111AA), Color(0xFF53004C)],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
