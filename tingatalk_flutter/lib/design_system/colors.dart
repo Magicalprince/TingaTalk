@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Professional Pinkish Theme - Lighter colors matching reference images
-  static const Color primaryBackground = Color(0xFFFF6B9D); // Lighter bright pink
-  static const Color secondaryBackground = Color(0xFFE91E63); // Bright pink
-  static const Color tertiaryBackground = Color(0xFF8E24AA); // Purple pink
+  // Updated theme with your specific dark purple and minimal pink
+  static const Color primaryBackground = Color(0xFF53004C); // Your specific dark purple
+  static const Color secondaryBackground = Color(0xFF7A0E8C); // Medium purple
+  static const Color tertiaryBackground = Color(0xFFB111AA); // Main purple
   
-  // Gradient colors for modern pinkish theme - lighter palette
-  static const Color gradientStart = Color(0xFFFF6B9D); // Lighter bright pink
-  static const Color gradientMiddle = Color(0xFFE91E63); // Bright pink
-  static const Color gradientEnd = Color(0xFF673AB7); // Deep purple
+  // Purple-dominated gradient colors with your specific dark purple
+  static const Color gradientStart = Color(0xFFC084FC); // Light purple (minimal pink)
+  static const Color gradientMiddle = Color(0xFFB111AA); // Main purple (40%)
+  static const Color gradientEnd = Color(0xFF53004C); // Your specific dark purple
   
   // Text colors - Professional and readable
   static const Color primaryText = Color(0xFFFFFFFF);
@@ -28,10 +28,10 @@ class AppColors {
   static const Color inputBorder = Color(0x4DFFFFFF); // Better border visibility
   static const Color inputFocusBorder = Color(0xFFFFFFFF);
   
-  // Accent colors for highlights and interactions
-  static const Color accent = Color(0xFFFF4081); // Bright Pink Accent
-  static const Color accentLight = Color(0xFFFF80AB); // Light Pink
-  static const Color accentDark = Color(0xFFC51162); // Dark Pink
+  // Purple-focused accent colors with your specific dark purple
+  static const Color accent = Color(0xFFB111AA); // Main Purple Accent
+  static const Color accentLight = Color(0xFFC084FC); // Light Purple (minimal pink)
+  static const Color accentDark = Color(0xFF53004C); // Your specific dark purple
   
   // Logo and branding colors
   static const Color logoGradientStart = Color(0xFFE91E63);
@@ -42,25 +42,24 @@ class AppColors {
   static const Color warning = Color(0xFFFF9800);
   static const Color error = Color(0xFFF44336);
   
-  // Modern gradient combinations for backgrounds - lighter palette
+  // Purple-dominated gradient with minimal pink and your specific dark purple
   static const List<Color> primaryGradient = [
-    Color(0xFFFF6B9D), // Lighter bright pink
-    Color(0xFFE91E63), // Bright pink
-    Color(0xFFAD1457), // Medium pink
-    Color(0xFF8E24AA), // Purple pink
-    Color(0xFF673AB7), // Deep purple
+    Color(0xFFC084FC), // Light purple (much less pink)
+    Color(0xFFB111AA), // Main purple center (40%)
+    Color(0xFF7A0E8C), // Medium purple
+    Color(0xFF53004C), // Your specific dark purple
   ];
   
   static const List<Color> secondaryGradient = [
-    Color(0xFFFF6B9D), // Lighter bright pink
-    Color(0xFFFF4081), // Pink accent
-    Color(0xFFE91E63), // Bright pink
+    Color(0xFFC084FC), // Light purple (minimal pink)
+    Color(0xFFB111AA), // Main purple
+    Color(0xFF53004C), // Your specific dark purple
   ];
   
   static const List<Color> logoGradient = [
-    Color(0xFFFF6B9D), // Lighter bright pink
-    Color(0xFFE91E63), // Bright pink
-    Color(0xFF8E24AA), // Purple pink
+    Color(0xFFC084FC), // Light purple (minimal pink)
+    Color(0xFFB111AA), // Main purple
+    Color(0xFF53004C), // Your specific dark purple
   ];
   
   // Overlay colors for depth and layering

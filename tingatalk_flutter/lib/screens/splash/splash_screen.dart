@@ -3,7 +3,7 @@ import '../../design_system/colors.dart';
 import '../../design_system/typography.dart';
 import '../../widgets/common/flowing_background.dart';
 import '../../widgets/common/tinga_logo.dart';
-import '../onboarding/onboarding_screen.dart';
+import '../welcome/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,13 +17,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     
-    // Navigate to onboarding after 3 seconds
+    // Navigate to landing screen after 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const OnboardingScreen(),
+            builder: (context) => const WelcomeScreen(),
           ),
         );
       }

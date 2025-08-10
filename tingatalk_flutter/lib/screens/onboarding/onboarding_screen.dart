@@ -4,7 +4,7 @@ import '../../design_system/typography.dart';
 import '../../design_system/spacing.dart';
 import '../../widgets/common/flowing_background.dart';
 import '../../widgets/common/tinga_logo.dart';
-import '../landing/landing_page.dart';
+import '../auth/login_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -107,7 +107,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     } else {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const LandingPage()),
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
       );
     }
   }
@@ -115,7 +115,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void _skipOnboarding() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const LandingPage()),
+      MaterialPageRoute(builder: (context) => const LoginScreen()),
     );
   }
 
@@ -125,77 +125,26 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFFE91E63), // Bright Pink - More visible
-              Color(0xFFAD1457), // Dark Pink
-              Color(0xFF8E24AA), // Purple Pink  
-              Color(0xFF673AB7), // Deep Purple
-              Color(0xFF4A148C), // Very Deep Purple
-            ],
-            stops: [0.0, 0.25, 0.5, 0.75, 1.0],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: AppColors.primaryGradient,
+            stops: [0.0, 0.3, 0.7, 1.0],
           ),
         ),
         child: Stack(
           children: [
-            // ENHANCED NEON GRADIENT OVERLAY - ONBOARDING VERSION
+            // Simplified purple overlay for consistency
             Positioned.fill(
               child: Container(
                 decoration: BoxDecoration(
                   gradient: RadialGradient(
-                    center: const Alignment(0.2, -0.3),
-                    radius: 1.6,
+                    center: const Alignment(0.0, -0.3),
+                    radius: 1.5,
                     colors: [
-                      // Enhanced neon pink center
-                      AppColors.accent.withValues(alpha: 0.6),
-                      AppColors.primaryBackground.withValues(alpha: 0.45),
-                      AppColors.secondaryBackground.withValues(alpha: 0.3),
-                      AppColors.tertiaryBackground.withValues(alpha: 0.2),
+                      AppColors.accent.withValues(alpha: 0.3),
                       Colors.transparent,
                     ],
-                    stops: const [0.0, 0.25, 0.5, 0.75, 1.0],
-                  ),
-                ),
-              ),
-            ),
-            
-            // NEON GLOW PATTERN - Left side
-            Positioned.fill(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    center: const Alignment(-0.6, 0.4),
-                    radius: 1.1,
-                    colors: [
-                      AppColors.accent.withValues(alpha: 0.4),
-                      AppColors.primaryBackground.withValues(alpha: 0.25),
-                      AppColors.secondaryBackground.withValues(alpha: 0.15),
-                      Colors.transparent,
-                    ],
-                    stops: const [0.0, 0.3, 0.6, 1.0],
-                  ),
-                ),
-              ),
-            ),
-            
-            // DIAGONAL NEON SWEEP - Onboarding version
-            Positioned.fill(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: const Alignment(-0.9, -0.9),
-                    end: const Alignment(0.9, 0.9),
-                    colors: [
-                      AppColors.accent.withValues(alpha: 0.35),
-                      Colors.transparent,
-                      AppColors.primaryBackground.withValues(alpha: 0.25),
-                      Colors.transparent,
-                      AppColors.secondaryBackground.withValues(alpha: 0.3),
-                      Colors.transparent,
-                      AppColors.tertiaryBackground.withValues(alpha: 0.2),
-                    ],
-                    stops: const [0.0, 0.16, 0.33, 0.5, 0.66, 0.83, 1.0],
+                    stops: const [0.0, 1.0],
                   ),
                 ),
               ),
@@ -253,7 +202,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         children: [
                           // Logo image
                           Image.asset(
-                            'assets/images/logo.jpeg',
+                            'assets/images/logo.png',
                             width: 110,
                             height: 110,
                             fit: BoxFit.cover,
@@ -262,14 +211,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 width: 110,
                                 height: 110,
                                 decoration: BoxDecoration(
-                                  gradient: LinearGradient(
+                                  gradient: const LinearGradient(
                                     begin: Alignment.topLeft,
                                     end: Alignment.bottomRight,
-                                    colors: [
-                                      AppColors.accent,
-                                      AppColors.primaryBackground,
-                                      AppColors.secondaryBackground,
-                                    ],
+                                    colors: AppColors.logoGradient,
                                   ),
                                   borderRadius: BorderRadius.circular(28),
                                 ),
@@ -294,11 +239,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: [
-                                  // Subtle pink tint at top
-                                  AppColors.primaryBackground.withValues(alpha: 0.18),
+                                  AppColors.accentLight.withValues(alpha: 0.15),
                                   Colors.transparent,
-                                  // Subtle purple tint at bottom
-                                  AppColors.tertiaryBackground.withValues(alpha: 0.22),
+                                  AppColors.accentDark.withValues(alpha: 0.20),
                                 ],
                                 stops: const [0.0, 0.5, 1.0],
                               ),
