@@ -18,9 +18,11 @@ class _SignupScreenState extends State<SignupScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final _ageController = TextEditingController();
   bool _isPasswordVisible = false;
   bool _isConfirmPasswordVisible = false;
   bool _agreeToTerms = false;
+  String? _selectedGender;
 
   @override
   void dispose() {
@@ -28,6 +30,7 @@ class _SignupScreenState extends State<SignupScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
+    _ageController.dispose();
     super.dispose();
   }
 
@@ -144,6 +147,22 @@ class _SignupScreenState extends State<SignupScreen> {
                       keyboardType: TextInputType.emailAddress,
                       prefixIcon: Icons.email_outlined,
                     ),
+                    
+                    const SizedBox(height: 20),
+                    
+                    // Age input
+                    _buildInputField(
+                      controller: _ageController,
+                      label: 'Age',
+                      hintText: 'Enter your age',
+                      keyboardType: TextInputType.number,
+                      prefixIcon: Icons.cake_outlined,
+                    ),
+                    
+                    const SizedBox(height: 20),
+                    
+                    // Gender selection
+                    _buildGenderSelection(),
                     
                     const SizedBox(height: 20),
                     
@@ -272,10 +291,9 @@ class _SignupScreenState extends State<SignupScreen> {
                     
                     // Sign up button with animation
                     _AnimatedButton(
-                      onTap: _agreeToTerms ? () {
+                      onTap: (_agreeToTerms && _selectedGender != null && _ageController.text.isNotEmpty) ? () {
                         HapticFeedback.lightImpact();
-                        // For signup, go to gender selection
-                        Navigator.pushReplacementNamed(context, '/gender-selection');
+                        _handleSignup();
                       } : () {},
                       child: Container(
                         width: double.infinity,
@@ -542,6 +560,90 @@ class _SignupScreenState extends State<SignupScreen> {
         child: Center(child: child),
       ),
     );
+  }
+  Widget _buildGenderSelection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Gender',
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            Expanded(
+              child: _buildGenderOption('Male', Icons.male),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: _buildGenderOption('Female', Icons.female),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildGenderOption(String gender, IconData icon) {
+    final isSelected = _selectedGender == gender;
+    
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedGender = gender;
+        });
+        HapticFeedback.selectionClick();
+      },
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: isSelected 
+              ? AppColors.accent.withValues(alpha: 0.2)
+              : Colors.white.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: isSelected 
+                ? AppColors.accent
+                : Colors.white.withValues(alpha: 0.3),
+            width: isSelected ? 2 : 1,
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: isSelected ? AppColors.accent : Colors.white,
+              size: 20,
+            ),
+            const SizedBox(width: 8),
+            Text(
+              gender,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: isSelected ? AppColors.accent : Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _handleSignup() {
+    if (_selectedGender == 'Female') {
+      // Female flow: Photo verification -> Payment setup -> Onboarding -> Home
+      Navigator.pushReplacementNamed(context, '/verification');
+    } else {
+      // Male flow: Payment setup -> Onboarding -> Home
+      Navigator.pushReplacementNamed(context, '/payment-setup');
+    }
   }
 }
 

@@ -9,6 +9,8 @@ import 'screens/auth/signup_screen.dart';
 import 'screens/auth/gender_selection_screen.dart';
 import 'screens/auth/verification_screen.dart';
 import 'screens/auth/payment_setup_screen.dart';
+import 'screens/auth/photo_upload_screen.dart';
+import 'screens/onboarding/onboarding_screen.dart';
 import 'screens/male/male_home_screen.dart';
 import 'screens/male/male_matches_screen.dart';
 import 'screens/male/male_wallet_screen.dart';
@@ -51,6 +53,9 @@ class TingaTalkApp extends StatelessWidget {
         '/gender-selection': (context) => const GenderSelectionScreen(),
         '/verification': (context) => const VerificationScreen(),
         '/payment-setup': (context) => const PaymentSetupScreen(),
+        '/photo-upload': (context) => const PhotoUploadScreen(),
+        '/onboarding-male': (context) => const OnboardingScreen(userType: 'male'),
+        '/onboarding-female': (context) => const OnboardingScreen(userType: 'female'),
         '/male-home': (context) => const MaleHomeScreen(),
         '/male-matches': (context) => const MaleMatchesScreen(),
         '/male-wallet': (context) => const MaleWalletScreen(),

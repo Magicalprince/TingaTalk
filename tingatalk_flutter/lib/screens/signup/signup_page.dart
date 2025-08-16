@@ -49,59 +49,43 @@ class _SignupPageState extends State<SignupPage> {
       _showErrorMessage('Please confirm your password');
       return;
     }
-    
-    if (_nameController.text.isNotEmpty &&
-        _emailController.text.isNotEmpty &&
-        _passwordController.text.isNotEmpty &&
-        _confirmPasswordController.text.isNotEmpty) {
-      
-      if (_passwordController.text != _confirmPasswordController.text) {
-        _showErrorMessage('Passwords do not match');
-        return;
-      }
-      
-      setState(() {
-        _isLoading = true;
-      });
-      
-      // Simulate API call
-      await Future.delayed(const Duration(seconds: 2));
-      
-      setState(() {
-        _isLoading = false;
-      });
-      
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text(
-            'Account created successfully! Welcome to TingaTalk!',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          backgroundColor: Colors.green.shade600, // Green for success
-          duration: const Duration(seconds: 2),
-          behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          margin: const EdgeInsets.all(16),
-        ),
-      );
-      
-      // Navigate to home screen after successful signup
-      Future.delayed(const Duration(seconds: 2), () {
-        if (mounted) {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()),
-            (route) => false,
-          );
-        }
-      });
+    if (_passwordController.text != _confirmPasswordController.text) {
+      _showErrorMessage('Passwords do not match');
+      return;
     }
+    setState(() {
+      _isLoading = true;
+    });
+    // Simulate API call
+    await Future.delayed(const Duration(seconds: 2));
+    setState(() {
+      _isLoading = false;
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text(
+          'Account created successfully! Let\'s personalize your experience!',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        backgroundColor: Colors.green.shade600,
+        duration: const Duration(seconds: 2),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        margin: const EdgeInsets.all(16),
+      ),
+    );
+    // Navigate to gender/age selection after signup
+    Future.delayed(const Duration(seconds: 2), () {
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, '/gender-selection');
+      }
+    });
   }
 
   void _showErrorMessage(String message) {

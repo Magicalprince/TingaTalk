@@ -144,7 +144,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   
                   _AnimatedButton(
                     onTap: () {
-                      Navigator.pushReplacementNamed(context, '/payment-setup');
+                      Navigator.pushReplacementNamed(context, '/photo-upload');
                     },
                     child: Container(
                       width: double.infinity,

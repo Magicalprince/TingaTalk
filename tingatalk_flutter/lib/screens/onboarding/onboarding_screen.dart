@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../design_system/colors.dart';
-import '../../design_system/typography.dart';
-import '../../design_system/spacing.dart';
-import '../../widgets/common/flowing_background.dart';
-import '../../widgets/common/tinga_logo.dart';
-import '../auth/login_screen.dart';
+import '../../design_system/theme.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+  final String userType; // 'male' or 'female'
+  
+  const OnboardingScreen({super.key, required this.userType});
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -17,78 +17,35 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  late final List<OnboardingData> _onboardingData;
-
-  Widget _buildVideoCallIcon() {
-    return Container(
-      width: 60,
-      height: 60,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        gradient: LinearGradient(
-          colors: [
-            AppColors.accent.withValues(alpha: 0.9),
-            AppColors.primaryBackground.withValues(alpha: 0.7),
-          ],
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.accent.withValues(alpha: 0.3),
-            blurRadius: 8,
-            spreadRadius: 2,
-          ),
-        ],
-      ),
-      child: const Icon(
-        Icons.videocam_outlined,
-        size: 30,
-        color: Colors.white,
-      ),
-    );
-  }
-
-  Widget _buildConnectionIcon() {
-    return Container(
-      width: 60,
-      height: 60,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        gradient: LinearGradient(
-          colors: [
-            AppColors.secondaryBackground.withValues(alpha: 0.9),
-            AppColors.accentLight.withValues(alpha: 0.7),
-          ],
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.secondaryBackground.withValues(alpha: 0.3),
-            blurRadius: 8,
-            spreadRadius: 2,
-          ),
-        ],
-      ),
-      child: const Icon(
-        Icons.people_outline,
-        size: 30,
-        color: Colors.white,
-      ),
-    );
-  }
+  late final List<Map<String, dynamic>> onboardingData;
 
   @override
   void initState() {
     super.initState();
-    _onboardingData = [
-      OnboardingData(
-        title: "Safe Voice & Video Calls",
-        subtitle: "Connect with strangers through secure voice and video calls. Meet new people in a safe, transparent environment.",
-        customIcon: _buildVideoCallIcon(),
-      ),
-      OnboardingData(
-        title: "Authentic Connections",
-        subtitle: "Build genuine friendships and meaningful conversations. Share experiences and connect with people worldwide.",
-        customIcon: _buildConnectionIcon(),
-      ),
+    onboardingData = [
+      {
+        'title': 'Welcome to TingaTalk',
+        'subtitle': 'Where meaningful connections begin',
+        'description': 'Connect with amazing people through voice and video calls in a safe, verified environment.',
+        'icon': Icons.favorite,
+        'color': AppColors.accent,
+      },
+      {
+        'title': 'Safe & Verified',
+        'subtitle': 'Your safety is our priority',
+        'description': 'All users are verified to ensure authentic connections. Chat with confidence knowing everyone is real.',
+        'icon': Icons.verified_user,
+        'color': AppColors.success,
+      },
+      {
+        'title': 'Start Connecting',
+        'subtitle': 'Your journey begins now',
+        'description': widget.userType == 'male'
+            ? 'Discover amazing women and start meaningful conversations with our coin-based system.'
+            : 'Share your time with interesting people and earn while making genuine connections.',
+        'icon': Icons.chat_bubble_outline,
+        'color': AppColors.accentLight,
+      },
     ];
   }
 
@@ -98,164 +55,42 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     super.dispose();
   }
 
-  void _nextPage() {
-    if (_currentPage < _onboardingData.length - 1) {
-      _pageController.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-    } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const LoginScreen()),
-      );
-    }
-  }
-
-  void _skipOnboarding() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const LoginScreen()),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: AppColors.primaryGradient,
-            stops: [0.0, 0.3, 0.7, 1.0],
-          ),
-        ),
-        child: Stack(
-          children: [
-            // Simplified purple overlay for consistency
-            Positioned.fill(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    center: const Alignment(0.0, -0.3),
-                    radius: 1.5,
-                    colors: [
-                      AppColors.accent.withValues(alpha: 0.3),
-                      Colors.transparent,
-                    ],
-                    stops: const [0.0, 1.0],
-                  ),
+      body: AppTheme.gradientBackground(
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Skip button
+              Padding(
+                padding: const EdgeInsets.all(24),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const SizedBox(width: 60),
+                    // Page indicators
+                    Row(
+                      children: List.generate(
+                        onboardingData.length,
+                        (index) => _buildPageIndicator(index),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: _skipOnboarding,
+                      child: Text(
+                        'Skip',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white.withValues(alpha: 0.8),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            
-            SafeArea(
-              child: Column(
-                children: [
-                  // Skip button
-                  Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: TextButton(
-                        onPressed: _skipOnboarding,
-                        child: Text(
-                          'Skip',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: AppColors.whiteText.withValues(alpha: 0.8),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  
-                  // PROFESSIONAL ONBOARDING LOGO - CLEAN & BUSINESS-READY
-                  Container(
-                    width: 110,
-                    height: 110,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(28),
-                      // PROFESSIONAL SHADOWS - Clean like "My Village"
-                      boxShadow: [
-                        // Main pink glow that matches background
-                        BoxShadow(
-                          color: AppColors.primaryBackground.withValues(alpha: 0.45),
-                          blurRadius: 35,
-                          spreadRadius: 10,
-                          offset: const Offset(0, 0),
-                        ),
-                        // Depth shadow
-                        BoxShadow(
-                          color: AppColors.tertiaryBackground.withValues(alpha: 0.35),
-                          blurRadius: 20,
-                          spreadRadius: 5,
-                          offset: const Offset(0, 5),
-                        ),
-                      ],
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(28),
-                      child: Stack(
-                        children: [
-                          // Logo image
-                          Image.asset(
-                            'assets/images/logo3.png',
-                            width: 110,
-                            height: 110,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return Container(
-                                width: 110,
-                                height: 110,
-                                decoration: BoxDecoration(
-                                  gradient: const LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: AppColors.logoGradient,
-                                  ),
-                                  borderRadius: BorderRadius.circular(28),
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    'T',
-                                    style: TextStyle(
-                                      fontSize: 50,
-                                      fontWeight: FontWeight.w900,
-                                      color: Colors.white,
-                                      letterSpacing: -2,
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                          // CLEAN BLEND OVERLAY - Matches background
-                          Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  AppColors.accentLight.withValues(alpha: 0.15),
-                                  Colors.transparent,
-                                  AppColors.accentDark.withValues(alpha: 0.20),
-                                ],
-                                stops: const [0.0, 0.5, 1.0],
-                              ),
-                              borderRadius: BorderRadius.circular(28),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-              
-              const SizedBox(height: AppSpacing.lg),
-              
-              // PageView
+              // Onboarding content
               Expanded(
                 child: PageView.builder(
                   controller: _pageController,
@@ -264,144 +99,265 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       _currentPage = index;
                     });
                   },
-                  itemCount: _onboardingData.length,
+                  itemCount: onboardingData.length,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          // Custom Icon
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: LinearGradient(
-                                colors: [
-                                  AppColors.accent.withValues(alpha: 0.2),
-                                  AppColors.primaryBackground.withValues(alpha: 0.2),
-                                ],
-                              ),
-                            ),
-                            child: Center(
-                              child: _onboardingData[index].customIcon,
-                            ),
-                          ),
-                          
-                          const SizedBox(height: AppSpacing.xl),
-                          
-                          // Title
-                          Text(
-                            _onboardingData[index].title,
-                            style: AppTypography.headline1.copyWith(
-                              fontSize: 28,
-                              fontWeight: FontWeight.w700,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          
-                          const SizedBox(height: AppSpacing.md),
-                          
-                          // Subtitle
-                          Text(
-                            _onboardingData[index].subtitle,
-                            style: AppTypography.subtitle1.copyWith(
-                              fontSize: 16,
-                              height: 1.5,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    );
+                    return _buildOnboardingPage(onboardingData[index]);
                   },
                 ),
               ),
-              
-              // Page indicators
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  _onboardingData.length,
-                  (index) => Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
-                    width: _currentPage == index ? 24 : 8,
-                    height: 8,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: _currentPage == index
-                          ? AppColors.accent
-                          : AppColors.whiteText.withValues(alpha: 0.3),
-                    ),
-                  ),
-                ),
-              ),
-              
-              const SizedBox(height: AppSpacing.xl),
-              
-              // Next/Get Started button - SAME STYLE AS LANDING PAGE
+              // Bottom navigation
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 56,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(28),
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.buttonShadow,
-                          blurRadius: 20,
-                          spreadRadius: 2,
-                          offset: const Offset(0, 8),
+                padding: const EdgeInsets.all(24),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Previous button
+                    _currentPage > 0
+                        ? GestureDetector(
+                            onTap: _previousPage,
+                            child: Container(
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: Colors.white.withValues(alpha: 0.2),
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(
+                                  color: Colors.white.withValues(alpha: 0.3),
+                                  width: 1,
+                                ),
+                              ),
+                              child: const Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ),
+                          )
+                        : const SizedBox(width: 50),
+                    // Next/Get Started button
+                    _AnimatedButton(
+                      onTap: _currentPage == onboardingData.length - 1
+                          ? _completeOnboarding
+                          : _nextPage,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(25),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.3),
+                              blurRadius: 20,
+                              spreadRadius: 2,
+                              offset: const Offset(0, 8),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    child: ElevatedButton(
-                      onPressed: _nextPage,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.buttonBackground,
-                        foregroundColor: AppColors.buttonText,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(28),
+                        child: Text(
+                          _currentPage == onboardingData.length - 1
+                              ? 'Get Started'
+                              : 'Next',
+                          style: GoogleFonts.poppins(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: const Color(0xFF2F0939),
+                          ),
                         ),
-                        elevation: 0,
-                        shadowColor: Colors.transparent,
                       ),
-                      child: Text(
-                        _currentPage == _onboardingData.length - 1
-                            ? 'Get Started'
-                            : 'Next',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
-              
-              const SizedBox(height: 40),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
+
+  Widget _buildPageIndicator(int index) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 4),
+      width: _currentPage == index ? 24 : 8,
+      height: 8,
+      decoration: BoxDecoration(
+        color: _currentPage == index 
+            ? Colors.white 
+            : Colors.white.withValues(alpha: 0.3),
+        borderRadius: BorderRadius.circular(4),
+      ),
+    );
+  }
+
+  Widget _buildOnboardingPage(Map<String, dynamic> data) {
+    return Padding(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Icon
+          Container(
+            width: 120,
+            height: 120,
+            decoration: BoxDecoration(
+              color: data['color'].withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(60),
+              border: Border.all(
+                color: data['color'].withValues(alpha: 0.3),
+                width: 2,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: data['color'].withValues(alpha: 0.3),
+                  blurRadius: 30,
+                  spreadRadius: 8,
+                  offset: const Offset(0, 0),
+                ),
+              ],
+            ),
+            child: Icon(
+              data['icon'],
+              size: 60,
+              color: data['color'],
+            ),
+          ),
+          
+          const SizedBox(height: 60),
+          
+          // Title
+          Text(
+            data['title'],
+            textAlign: TextAlign.center,
+            style: GoogleFonts.dancingScript(
+              fontSize: 36,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+              letterSpacing: 0.5,
+            ),
+          ),
+          
+          const SizedBox(height: 16),
+          
+          // Subtitle
+          Text(
+            data['subtitle'],
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Colors.white.withValues(alpha: 0.9),
+            ),
+          ),
+          
+          const SizedBox(height: 24),
+          
+          // Description
+          Text(
+            data['description'],
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: AppColors.secondaryText,
+              height: 1.5,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _nextPage() {
+    if (_currentPage < onboardingData.length - 1) {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  void _previousPage() {
+    if (_currentPage > 0) {
+      _pageController.previousPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  void _skipOnboarding() {
+    HapticFeedback.lightImpact();
+    _completeOnboarding();
+  }
+
+  void _completeOnboarding() {
+    HapticFeedback.lightImpact();
+    if (widget.userType == 'male') {
+      Navigator.pushReplacementNamed(context, '/male-home');
+    } else {
+      Navigator.pushReplacementNamed(context, '/female-home');
+    }
+  }
 }
 
-class OnboardingData {
-  final String title;
-  final String subtitle;
-  final Widget customIcon;
+class _AnimatedButton extends StatefulWidget {
+  final VoidCallback onTap;
+  final Widget child;
 
-  OnboardingData({
-    required this.title,
-    required this.subtitle,
-    required this.customIcon,
+  const _AnimatedButton({
+    required this.onTap,
+    required this.child,
   });
+
+  @override
+  State<_AnimatedButton> createState() => _AnimatedButtonState();
+}
+
+class _AnimatedButtonState extends State<_AnimatedButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 150),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(
+      begin: 1.0,
+      end: 0.95,
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTapDown: (_) => _controller.forward(),
+      onTapUp: (_) {
+        _controller.reverse();
+        widget.onTap();
+      },
+      onTapCancel: () => _controller.reverse(),
+      child: AnimatedBuilder(
+        animation: _scaleAnimation,
+        builder: (context, child) {
+          return Transform.scale(
+            scale: _scaleAnimation.value,
+            child: widget.child,
+          );
+        },
+      ),
+    );
+  }
 }

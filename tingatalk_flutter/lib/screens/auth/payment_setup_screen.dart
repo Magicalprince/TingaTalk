@@ -30,8 +30,21 @@ class _PaymentSetupScreenState extends State<PaymentSetupScreen> {
     super.dispose();
   }
 
+  void _skipPaymentSetup({required String userType}) {
+    HapticFeedback.lightImpact();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => OnboardingScreen(userType: userType),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    // Get gender from arguments if available
+    final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    final String userType = (args != null && args['gender'] == 'female') ? 'female' : 'male';
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -70,26 +83,53 @@ class _PaymentSetupScreenState extends State<PaymentSetupScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Back button
-                    GestureDetector(
-                      onTap: () => Navigator.pop(context),
-                      child: Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: AppColors.overlayMedium,
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(
-                            color: AppColors.whiteText.withValues(alpha: 0.2),
-                            width: 1,
+                    // Header with back and skip
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () => Navigator.pop(context),
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: AppColors.overlayMedium,
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                color: AppColors.whiteText.withValues(alpha: 0.2),
+                                width: 1,
+                              ),
+                            ),
+                            child: const Icon(
+                              Icons.arrow_back,
+                              color: AppColors.whiteText,
+                              size: 20,
+                            ),
                           ),
                         ),
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: AppColors.whiteText,
-                          size: 20,
+                        GestureDetector(
+                          onTap: () => _skipPaymentSetup(userType: userType),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withValues(alpha: 0.2),
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                color: Colors.white.withValues(alpha: 0.3),
+                                width: 1,
+                              ),
+                            ),
+                            child: const Text(
+                              'Skip',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                     
                     const SizedBox(height: 40),
@@ -298,7 +338,7 @@ class _PaymentSetupScreenState extends State<PaymentSetupScreen> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const OnboardingScreen(),
+                            builder: (context) => OnboardingScreen(userType: userType),
                           ),
                         );
                       },

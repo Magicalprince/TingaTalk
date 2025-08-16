@@ -12,6 +12,7 @@ class GenderSelectionScreen extends StatefulWidget {
 
 class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
   String? selectedGender;
+  int? selectedAge;
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +45,7 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
                     ),
                   ),
                 ),
-                
                 const SizedBox(height: 60),
-                
                 // Title
                 const Text(
                   'I am a...',
@@ -57,20 +56,16 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
                     height: 1.2,
                   ),
                 ),
-                
                 const SizedBox(height: 8),
-                
                 Text(
-                  'Select your gender to personalize your experience',
+                  'Select your gender and age to personalize your experience',
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColors.secondaryText,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                
-                const SizedBox(height: 60),
-                
+                const SizedBox(height: 40),
                 // Gender options
                 _buildGenderOption(
                   gender: 'male',
@@ -78,37 +73,83 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
                   subtitle: 'Looking for meaningful connections',
                   icon: Icons.male,
                 ),
-                
                 const SizedBox(height: 20),
-                
                 _buildGenderOption(
                   gender: 'female',
                   title: 'Woman',
                   subtitle: 'Ready to share your time and energy',
                   icon: Icons.female,
                 ),
-                
+                const SizedBox(height: 40),
+                // Age input
+                Text(
+                  'Your Age',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.whiteText,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.15),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.3),
+                      width: 1,
+                    ),
+                  ),
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    decoration: const InputDecoration(
+                      hintText: 'Enter your age',
+                      hintStyle: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white54,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        selectedAge = int.tryParse(value);
+                      });
+                    },
+                  ),
+                ),
                 const Spacer(),
-                
                 // Continue button
                 _AnimatedButton(
-                  onTap: selectedGender != null ? () {
+                  onTap: (selectedGender != null && selectedAge != null && selectedAge! > 0) ? () {
                     HapticFeedback.lightImpact();
                     if (selectedGender == 'male') {
-                      Navigator.pushReplacementNamed(context, '/male-home');
+                      Navigator.pushReplacementNamed(context, '/payment-setup', arguments: {
+                        'gender': selectedGender,
+                        'age': selectedAge,
+                      });
                     } else {
-                      Navigator.pushReplacementNamed(context, '/verification');
+                      Navigator.pushReplacementNamed(context, '/verification', arguments: {
+                        'gender': selectedGender,
+                        'age': selectedAge,
+                      });
                     }
                   } : () {},
                   child: Container(
                     width: double.infinity,
                     height: 56,
                     decoration: BoxDecoration(
-                      color: selectedGender != null 
-                          ? Colors.white 
+                      color: (selectedGender != null && selectedAge != null && selectedAge! > 0)
+                          ? Colors.white
                           : Colors.white.withValues(alpha: 0.5),
                       borderRadius: BorderRadius.circular(16),
-                      boxShadow: selectedGender != null ? [
+                      boxShadow: (selectedGender != null && selectedAge != null && selectedAge! > 0) ? [
                         BoxShadow(
                           color: Colors.black.withValues(alpha: 0.3),
                           blurRadius: 20,
@@ -123,7 +164,7 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: selectedGender != null 
+                          color: (selectedGender != null && selectedAge != null && selectedAge! > 0)
                               ? const Color(0xFF2F0939)
                               : const Color(0xFF2F0939).withValues(alpha: 0.5),
                         ),
@@ -131,7 +172,6 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
                     ),
                   ),
                 ),
-                
                 const SizedBox(height: 40),
               ],
             ),
