@@ -202,7 +202,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         children: [
                           // Logo image
                           Image.asset(
-                            'assets/images/logo.png',
+                            'assets/images/logo3.png',
                             width: 110,
                             height: 110,
                             fit: BoxFit.cover,

@@ -67,6 +67,7 @@ class _SignupScreenState extends State<SignupScreen> {
             
             SafeArea(
               child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,27 +96,32 @@ class _SignupScreenState extends State<SignupScreen> {
                     
                     const SizedBox(height: 40),
                     
-                    // Create account text
+                    // Create account text with romantic font
                     const Text(
-                      'Create Account',
+                      'Begin Your Love Story',
                       style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w800,
+                        fontSize: 34,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Dancing Script',
                         color: AppColors.whiteText,
                         height: 1.2,
+                        letterSpacing: 0.5,
                       ),
                     ),
                     
                     const SizedBox(height: 8),
                     
                     Text(
-                      'Sign up to get started',
+                      'Create your profile and find your perfect match',
                       style: TextStyle(
                         fontSize: 16,
+                        fontFamily: 'Poppins',
                         color: AppColors.secondaryText,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
+                    
+                    const SizedBox(height: 40),
                     
                     const SizedBox(height: 40),
                     
@@ -268,12 +274,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     _AnimatedButton(
                       onTap: _agreeToTerms ? () {
                         HapticFeedback.lightImpact();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const PaymentSetupScreen(),
-                          ),
-                        );
+                        // For signup, go to gender selection
+                        Navigator.pushReplacementNamed(context, '/gender-selection');
                       } : () {},
                       child: Container(
                         width: double.infinity,

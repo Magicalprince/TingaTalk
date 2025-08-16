@@ -26,6 +26,34 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  void _handleLogin() {
+    final email = _emailController.text.toLowerCase().trim();
+    
+    // Route based on email
+    if (email == 'iambarani' || email.contains('iambarani')) {
+      // Navigate to male dashboard
+      Navigator.pushReplacementNamed(context, '/male-home');
+    } else if (email == 'silk' || email.contains('silk')) {
+      // Navigate to female dashboard
+      Navigator.pushReplacementNamed(context, '/female-home');
+    } else {
+      // Default routing - show error or go to gender selection
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text(
+            'Welcome to TingaTalk! Please use "iambarani" for male demo or "silk" for female demo.',
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: AppColors.accent,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,16 +90,11 @@ class _LoginScreenState extends State<LoginScreen> {
             
             SafeArea(
               child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.all(24),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: MediaQuery.of(context).size.height - 
-                               MediaQuery.of(context).padding.top - 
-                               MediaQuery.of(context).padding.bottom - 48,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     // Back button
                     GestureDetector(
                       onTap: () => Navigator.pop(context),
@@ -96,23 +119,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     
                     const SizedBox(height: 40),
                     
-                    // Welcome back text
+                    // Welcome back text with romantic font
                     const Text(
-                      'Welcome Back!',
+                      'Welcome Back, Darling!',
                       style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w800,
+                        fontSize: 34,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Dancing Script',
                         color: AppColors.whiteText,
                         height: 1.2,
+                        letterSpacing: 0.5,
                       ),
                     ),
                     
                     const SizedBox(height: 8),
                     
                     Text(
-                      'Sign in to your account',
+                      'Continue your journey to find love',
                       style: TextStyle(
                         fontSize: 16,
+                        fontFamily: 'Poppins',
                         color: AppColors.secondaryText,
                         fontWeight: FontWeight.w400,
                       ),
@@ -219,7 +245,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     _AnimatedButton(
                       onTap: () {
                         HapticFeedback.lightImpact();
-                        // TODO: Implement login logic
+                        _handleLogin();
                       },
                       child: Container(
                         width: double.infinity,
@@ -389,8 +415,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    ],
-                  ),
+                    
+                    const SizedBox(height: 40),
+                  ],
                 ),
               ),
             ),

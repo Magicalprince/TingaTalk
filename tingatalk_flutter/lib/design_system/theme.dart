@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 import 'typography.dart';
 
@@ -8,6 +9,7 @@ class AppTheme {
       brightness: Brightness.dark,
       primarySwatch: Colors.purple,
       scaffoldBackgroundColor: AppColors.primaryBackground,
+      textTheme: GoogleFonts.poppinsTextTheme(), // Set romantic font as default
       
       // AppBar theme with gradient support
       appBarTheme: const AppBarTheme(

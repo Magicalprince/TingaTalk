@@ -1,68 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
 class AppTypography {
-  // Font families with system fallbacks
-  static const String primaryFont = 'Inter';
-  static const String secondaryFont = 'SF Pro Text';
+  // Romantic font families for dating app using Google Fonts
+  static String get primaryFont => GoogleFonts.poppins().fontFamily!;
+  static String get romanticFont => GoogleFonts.dancingScript().fontFamily!;
   
   // Headline styles
-  static const TextStyle headline1 = TextStyle(
-    fontFamily: primaryFont,
+  static TextStyle get headline1 => GoogleFonts.poppins(
     fontSize: 24.60,
     fontWeight: FontWeight.w700,
     color: AppColors.primaryText,
     height: 1.02,
   );
   
-  // Body text styles
-  static const TextStyle bodyLarge = TextStyle(
-    fontFamily: primaryFont,
+  // Body text styles using Google Fonts
+  static TextStyle get bodyLarge => GoogleFonts.poppins(
     fontSize: 17,
     fontWeight: FontWeight.w500,
     color: AppColors.whiteText,
   );
   
-  static const TextStyle bodyMedium = TextStyle(
-    fontFamily: primaryFont,
+  static TextStyle get bodyMedium => GoogleFonts.poppins(
     fontSize: 16,
     fontWeight: FontWeight.w400,
     color: AppColors.whiteText,
   );
   
-  static const TextStyle bodySmall = TextStyle(
-    fontFamily: primaryFont,
+  static TextStyle get bodySmall => GoogleFonts.poppins(
     fontSize: 14,
     fontWeight: FontWeight.w700,
     color: AppColors.primaryText,
   );
   
   // Subtitle styles
-  static const TextStyle subtitle1 = TextStyle(
-    fontFamily: primaryFont,
+  static TextStyle get subtitle1 => GoogleFonts.poppins(
     fontSize: 13,
     fontWeight: FontWeight.w400,
     color: AppColors.secondaryText,
     height: 0.95,
   );
   
-  static const TextStyle subtitle2 = TextStyle(
-    fontFamily: primaryFont,
+  static TextStyle get subtitle2 => GoogleFonts.poppins(
     fontSize: 14,
     fontWeight: FontWeight.w500,
     color: AppColors.primaryText,
   );
   
   // Button text styles
-  static const TextStyle buttonText = TextStyle(
-    fontFamily: primaryFont,
+  static TextStyle get buttonText => GoogleFonts.poppins(
     fontSize: 10.30,
     fontWeight: FontWeight.w700,
     color: AppColors.buttonText,
   );
   
-  static const TextStyle buttonTextLarge = TextStyle(
-    fontFamily: primaryFont,
+  static TextStyle get buttonTextLarge => GoogleFonts.poppins(
     fontSize: 13,
     fontWeight: FontWeight.w600,
     color: AppColors.buttonText,
@@ -70,32 +63,52 @@ class AppTypography {
   );
   
   // Input text styles
-  static const TextStyle inputText = TextStyle(
-    fontFamily: secondaryFont,
+  static TextStyle get inputText => GoogleFonts.poppins(
     fontSize: 16,
     fontWeight: FontWeight.w400,
     color: AppColors.whiteText,
   );
   
-  static const TextStyle inputPlaceholder = TextStyle(
-    fontFamily: secondaryFont,
+  static TextStyle get inputPlaceholder => GoogleFonts.poppins(
     fontSize: 16,
     fontWeight: FontWeight.w400,
     color: AppColors.placeholderText,
   );
   
   // Back button text
-  static const TextStyle backButtonText = TextStyle(
-    fontFamily: secondaryFont,
+  static TextStyle get backButtonText => GoogleFonts.poppins(
     fontSize: 23,
     fontWeight: FontWeight.w400,
     color: AppColors.whiteText,
   );
   
-  static const TextStyle backButtonLabel = TextStyle(
-    fontFamily: primaryFont,
+  static TextStyle get backButtonLabel => GoogleFonts.poppins(
     fontSize: 17,
     fontWeight: FontWeight.w500,
     color: AppColors.whiteText,
+  );
+  
+  // Romantic typography styles using Google Fonts
+  static TextStyle get romanticHeading => GoogleFonts.dancingScript(
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+    color: AppColors.whiteText,
+    letterSpacing: 0.5,
+    height: 1.2,
+  );
+  
+  static TextStyle get romanticSubheading => GoogleFonts.dancingScript(
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+    color: AppColors.whiteText,
+    letterSpacing: 0.3,
+    height: 1.3,
+  );
+  
+  static TextStyle get professionalBody => GoogleFonts.poppins(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.secondaryText,
+    height: 1.4,
   );
 }

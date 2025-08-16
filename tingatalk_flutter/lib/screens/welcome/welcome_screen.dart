@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../design_system/colors.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -25,78 +26,114 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 const Spacer(flex: 2),
                 
-                // App logo/icon
+                // App logo/icon - matching onboarding screen style
                 Container(
                   width: 85,
                   height: 85,
-                  decoration: ShapeDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFFC084FC), Color(0xFFB111AA), Color(0xFF53004C)],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    shadows: const [
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    // Professional shadows matching onboarding screen
+                    boxShadow: [
+                      // Main glow that matches background
                       BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 100,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
+                        color: AppColors.accentLight.withValues(alpha: 0.45),
+                        blurRadius: 30,
+                        spreadRadius: 8,
+                        offset: const Offset(0, 0),
+                      ),
+                      // Depth shadow
+                      BoxShadow(
+                        color: AppColors.accentDark.withValues(alpha: 0.35),
+                        blurRadius: 15,
+                        spreadRadius: 3,
+                        offset: const Offset(0, 4),
+                      ),
                     ],
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      'assets/images/logo.png',
-                      width: 85,
-                      height: 85,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return const Center(
-                          child: Text(
-                            'T',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold,
+                    child: Stack(
+                      children: [
+                        // Logo image
+                        Image.asset(
+                          'assets/images/logo3.png',
+                          width: 85,
+                          height: 85,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              width: 85,
+                              height: 85,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: AppColors.logoGradient,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'T',
+                                  style: TextStyle(
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w900,
+                                    color: Colors.white,
+                                    letterSpacing: -2,
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        // Clean blend overlay - matches background
+                        Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                AppColors.accentLight.withValues(alpha: 0.15),
+                                Colors.transparent,
+                                AppColors.accentDark.withValues(alpha: 0.20),
+                              ],
+                              stops: const [0.0, 0.5, 1.0],
                             ),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                        );
-                      },
+                        ),
+                      ],
                     ),
                   ),
                 ),
                 
                 const SizedBox(height: 40),
                 
-                // Main title
-                const Text(
-                  'Let Your Depression Go Away',
+                // Main title with romantic font
+                Text(
+                  'Find Your Perfect Connection',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color(0xFFF8EAF3),
-                    fontSize: 28,
-                    fontFamily: 'Inter',
+                  style: GoogleFonts.dancingScript(
+                    color: const Color(0xFFF8EAF3),
+                    fontSize: 32,
                     fontWeight: FontWeight.w700,
-                    height: 1.07,
+                    height: 1.2,
+                    letterSpacing: 0.5,
                   ),
                 ),
                 
                 const SizedBox(height: 16),
                 
                 // Subtitle text
-                const Text(
-                  'Join the safest talk app with transparency!',
+                Text(
+                  'Where meaningful conversations bloom into beautiful relationships ✨',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color(0xD8F9CDD1),
-                    fontSize: 17,
-                    fontFamily: 'Inter',
+                  style: GoogleFonts.poppins(
+                    color: const Color(0xD8F9CDD1),
+                    fontSize: 18,
                     fontWeight: FontWeight.w400,
-                    height: 1.18,
+                    height: 1.3,
+                    letterSpacing: 0.2,
                   ),
                 ),
                 
@@ -151,27 +188,25 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 12),
-                      const Expanded(
+                      Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Your mood is your business',
-                              style: TextStyle(
+                              'Your heart deserves privacy',
+                              style: GoogleFonts.poppins(
                                 color: Colors.white,
                                 fontSize: 14,
-                                fontFamily: 'SF Pro',
                                 fontWeight: FontWeight.w600,
                                 height: 1.40,
                               ),
                             ),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             Text(
-                              'All data stays on your device, encrypted end-to-end.',
-                              style: TextStyle(
-                                color: Color(0xD8F9CDD1),
+                              'Safe, secure, and authentic connections only.',
+                              style: GoogleFonts.poppins(
+                                color: const Color(0xD8F9CDD1),
                                 fontSize: 12,
-                                fontFamily: 'SF Pro',
                                 fontWeight: FontWeight.w500,
                                 height: 1.40,
                               ),
@@ -207,13 +242,12 @@ class WelcomeScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    child: const Text(
-                      'Get started',
+                    child: Text(
+                      'Start Your Journey',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color(0xFF2F0939),
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xFF2F0939),
                         fontSize: 16,
-                        fontFamily: 'Inter',
                         fontWeight: FontWeight.w700,
                         height: 1.40,
                       ),

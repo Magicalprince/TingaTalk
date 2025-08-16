@@ -17,7 +17,7 @@ class TingaLogo extends StatelessWidget {
       width: size,
       height: size * 0.6,
       child: Image.asset(
-        'assets/images/logo.png',
+        'assets/images/logo3.png',
         width: size,
         height: size * 0.6,
         fit: BoxFit.contain,
@@ -95,7 +95,7 @@ class TingaLogoIcon extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(size * 0.2),
         child: Image.asset(
-          'assets/images/logo.png',
+          'assets/images/logo3.png',
           width: size,
           height: size,
           fit: BoxFit.contain,
