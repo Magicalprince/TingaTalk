@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../design_system/colors.dart';
 import '../../design_system/theme.dart';
 import '../../widgets/bottom_navigation.dart';
@@ -88,52 +89,72 @@ class _MaleHomeScreenState extends State<MaleHomeScreen> {
                     children: [
                       const SizedBox(height: 20),
                       
-                      // Welcome message with romantic touch
-                      const Text(
-                        'Ready to Connect?',
-                        style: TextStyle(
+                      // Modern header
+                      Text(
+                        'Home',
+                        style: GoogleFonts.poppins(
                           fontSize: 32,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Dancing Script',
+                          fontWeight: FontWeight.w800,
                           color: Colors.white,
-                          letterSpacing: 0.5,
                         ),
                       ),
                       
                       const SizedBox(height: 8),
                       
+                      // Recent section header
+                      const SizedBox(height: 20),
+                      
                       Text(
-                        'Discover amazing people waiting to meet you ✨',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'Poppins',
-                          color: AppColors.secondaryText,
-                          fontWeight: FontWeight.w400,
+                        'Recent',
+                        style: GoogleFonts.poppins(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
                         ),
                       ),
                       
                       const SizedBox(height: 32),
                       
-                      // Recent Calls Section
-                      _buildSectionHeader('Recent Calls', 'View All'),
-                      
                       const SizedBox(height: 16),
                       
-                      _buildRecentCallsCarousel(),
+                      // Modern Recent Call Card
+                      _buildModernRecentCallCard(),
                       
                       const SizedBox(height: 32),
                       
-                      // Favorite Users Section
-                      _buildSectionHeader('Your Favorites', 'See All'),
+                      const SizedBox(height: 32),
+                      
+                      // Favorites section
+                      Text(
+                        'Favourites',
+                        style: GoogleFonts.poppins(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
                       
                       const SizedBox(height: 16),
                       
-                      _buildFavoritesCarousel(),
+                      _buildModernFavoritesGrid(),
                       
                       const SizedBox(height: 32),
                       
-                      // Quick Actions
-                      _buildQuickActions(),
+                      const SizedBox(height: 32),
+                      
+                      // Suggested section
+                      Text(
+                        'Suggested',
+                        style: GoogleFonts.poppins(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
+                      
+                      const SizedBox(height: 16),
+                      
+                      _buildSuggestedCard(),
                       
                       const SizedBox(height: 100), // Bottom padding for navigation
                     ],
@@ -206,49 +227,38 @@ class _MaleHomeScreenState extends State<MaleHomeScreen> {
             ),
           ),
           
-          // Coin Balance
+          // Modern Coin Balance
           GestureDetector(
             onTap: () => Navigator.pushNamed(context, '/male-wallet'),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.15),
+                color: Colors.amber.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: Colors.white.withValues(alpha: 0.3),
+                  color: Colors.amber.withValues(alpha: 0.3),
                   width: 1,
                 ),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset(
-                    'assets/images/coin.png',
-                    width: 20,
-                    height: 20,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        width: 20,
-                        height: 20,
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Icon(
-                          Icons.monetization_on,
+                  Container(
+                    width: 24,
+                    height: 24,
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        '0',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
                           color: Colors.white,
-                          size: 12,
                         ),
-                      );
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  const Text(
-                    '250',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
@@ -687,6 +697,247 @@ class _MaleHomeScreenState extends State<MaleHomeScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildSuggestedCard() {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.15),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Colors.white.withValues(alpha: 0.2),
+          width: 1,
+        ),
+      ),
+      child: Row(
+        children: [
+          // Profile placeholder
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.3),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: const Icon(
+              Icons.image,
+              color: Colors.white,
+              size: 24,
+            ),
+          ),
+          
+          const SizedBox(width: 16),
+          
+          // User details
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '***Name***',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  children: [
+                    Text(
+                      'Video Calls - 21',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        color: AppColors.secondaryText,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Text(
+                      'Voice Calls - 20',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        color: AppColors.secondaryText,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  children: [
+                    ...List.generate(5, (index) {
+                      return Icon(
+                        index < 4 ? Icons.star : Icons.star_border,
+                        color: Colors.amber,
+                        size: 16,
+                      );
+                    }),
+                    const SizedBox(width: 8),
+                    Text(
+                      '9/10',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        color: AppColors.secondaryText,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildModernFavoritesGrid() {
+    return SizedBox(
+      height: 200,
+      child: GridView.builder(
+        scrollDirection: Axis.horizontal,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 1,
+          childAspectRatio: 1.2,
+          mainAxisSpacing: 12,
+        ),
+        itemCount: favoriteUsers.length,
+        itemBuilder: (context, index) {
+          final user = favoriteUsers[index];
+          return Container(
+            width: 160,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              gradient: const LinearGradient(
+                colors: AppColors.logoGradient,
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                user['image'],
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: AppColors.logoGradient,
+                      ),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Center(
+                      child: Text(
+                        user['name'][0],
+                        style: const TextStyle(
+                          fontSize: 48,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildModernRecentCallCard() {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.15),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Colors.white.withValues(alpha: 0.2),
+          width: 1,
+        ),
+      ),
+      child: Row(
+        children: [
+          // Profile image
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25),
+              gradient: const LinearGradient(
+                colors: AppColors.logoGradient,
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(25),
+              child: Image.asset(
+                'assets/images/user1.jpg',
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: AppColors.logoGradient,
+                      ),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'P',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          
+          const SizedBox(width: 16),
+          
+          // Call details
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '***Priya***',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'Video call - 15 Mins',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    color: AppColors.secondaryText,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  '12/10/2020  01:20 AM',
+                  style: GoogleFonts.poppins(
+                    fontSize: 12,
+                    color: AppColors.secondaryText,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
